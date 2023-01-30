@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="데이터 준비와 모델 학습은 누구나 머신러닝 작업 파이프라인에서 핵심적인 단계로 생각하지만, 학습된 모델의 퍼포먼스를 측정하는것 또한 중요한 단계에 해당한다.
+새로운 데이터로(학습에 사용하지 않은) 모델을 일반화시킬 수 있을까 하는것은 적응형(adaptive) vs 비적"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="머신러닝 모델 평가지표 - 분류"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="데이터 준비와 모델 학습은 누구나 머신러닝 작업 파이프라인에서 핵심적인 단계로 생각하지만, 학습된 모델의 퍼포먼스를 측정하는것 또한 중요한 단계에 해당한다.
+새로운 데이터로(학습에 사용하지 않은) 모델을 일반화시킬 수 있을까 하는것은 적응형(adaptive) vs 비적"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Hexo"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://twinfamily.github.ioimg/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://twinfamily.github.ioimg/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>머신러닝 모델 평가지표 - 분류 - Hexo</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>머신러닝 모델 평가지표 - 분류</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                            Posted by John Doe on
+                        
+                        
+                            2023-01-31
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>데이터 준비와 모델 학습은 누구나 머신러닝 작업 파이프라인에서 핵심적인 단계로 생각하지만, 학습된 모델의 퍼포먼스를 측정하는것 또한 중요한 단계에 해당한다.</p>
+<p>새로운 데이터로(학습에 사용하지 않은) 모델을 일반화시킬 수 있을까 하는것은 적응형(adaptive) vs 비적응형(non-adaptive)으로 구분할 수 있다.</p>
+<p>우리는 학습시킨 모델을 바로 실서비스에 올려서 처음 만나는 데이터를 접하기 전에, 다른 평가지표로 퍼포먼스 평가를 하여 우리 모델이 처음만나는 데이터에 대해서도 훌륭한 예측력을 가질 수 있도록 개선시켜야한다.</p>
+<p>모델을 학습하면서 단순히 모델의 정확도에만 의존하여 검증단계에서 안 좋은 성능을 보여주는 예시 이미지이다.</p>
+<div align='cneter'><img src='https://user-images.githubusercontent.com/79561091/215026742-aff9138a-8be8-4fb9-a515-fa3ca01e195d.png' /></div>
+<center>[그림1] 좋지 않은 성능 결과</center><br><br>
+
+
+<h2 id="1-평가지표-evaluation-metrics"><a href="#1-평가지표-evaluation-metrics" class="headerlink" title="1. 평가지표(evaluation metrics)"></a>1. 평가지표(evaluation metrics)</h2><hr>
+<p>분류(classification), 회귀(regression), 랭킹, 군집화(clustering), 토픽모델링(topic modeling) 등  각각의 모델마다 적절한 평가지표는 다르지만, <code>Precision-recall</code>과 같이 여러 머신러닝에서 통상적으로 유용하게 쓰이는 지표들이 있다.  분류, 회귀와 랭킹은 보편적으로 많이 쓰이는 지도학습(supervised learning)의 예시로 볼 수도 있다.</p>
+<h3 id="1-1-모델-정확도-Model-Accuracy"><a href="#1-1-모델-정확도-Model-Accuracy" class="headerlink" title="1.1 모델 정확도(Model Accuracy)"></a>1.1 모델 정확도(Model Accuracy)</h3><p>분류 모델 측면에서 모델 정확도는 전체 표본 중 정확히 분류된 표본의 수라고 볼 수 있다.<br>모델 정확도를 설명하기에 앞서 우선적으로 알아야 할 것 중에 Confusion Matric에 대해서 알아보고자 한다.</p>
+<div align='cneter'><img src='https://user-images.githubusercontent.com/79561091/215372237-a663934d-e1de-45cd-a661-be3bae8686e3.png'/></div>
+<center>[그림2] Confusion Matric</center>
+
+<p>TP, FN, FP, TN의 네 가지로 분류됨을 알 수 있다. 여기서 각각의 의미를 살펴보자면, True와 False는 예측한 것이 정답과 일치하는지를 의미하며 Positive와 Negative는 예측의 여부를 말한다.<br>다음 예시로 의미를 설명하고자 한다.</p>
+<p>[강아지 사진을 보여주는 경우]<br><em>True Positive</em><br>강아지가 맞다고 예측하는 경우(True), 모델이 정답(Positive)을 맞춤<br><em>False Negative</em><br>강아지가 아니라고 예측하는 경우(False), 모델이 정답을 오답(Negative)이라고 생각함</p>
+<p>[강아지 사진이 아닌 경우]<br><em>False Positive</em><br>강아지가 맞다고 예측하는 경우(True), 모델이 오답을 정답(Positive)이라고 생각함<br><em>True Negative</em><br>강아지가 아니라고 예측하는 경우(False), 모델이 오답(Negative)을 맞춤</p>
+<p>여기서 말하는 TP와 TN의 경우가 정확히 분류된 표본이라고 볼 수 있다.<br><code>Accurancy = 정확히 분류된 표본(TP+TN) / 전체 표본(TP+FN+FP+TN)</code></p>
+<h4 id="정확도가-높으면-무조건-좋은-것일까"><a href="#정확도가-높으면-무조건-좋은-것일까" class="headerlink" title="정확도가 높으면 무조건 좋은 것일까?"></a>정확도가 높으면 무조건 좋은 것일까?</h4><p>정확도의 방법에는 문제점이 있는데, 단지 예측의 성공에만 초점을 둔다는 것이다. 전체 표본의 편중(Bias)을 고려해야 할 필요가 있는데, 만약 전체 표본에서 강아지의 비율이 99.99%라면 다 강아지라고 예측해도 모델은 99% 이상의 정확도를 보여줄 것이다. 이 경우에는 강아지가 아닌 다른 것들을 제대로 분류하는지 알 수 없다.<br>만약에 암 환자를 구분하는 경우라고 생각하면 그 문제는 더 심각하다. 대부분의 경우 정상이므로, 정상이라고 예측하면 높은 정확도를 보여줄 것이다. 이 경우 높은 정확도의 모델이지만 암 환자를 제대로 예측하지 못하는 심각한 문제가 발생할 수 있다.</p>
+<h3 id="1-2-정밀도와-재현율-Precision-and-Recall"><a href="#1-2-정밀도와-재현율-Precision-and-Recall" class="headerlink" title="1.2 정밀도와 재현율 (Precision and Recall)"></a>1.2 정밀도와 재현율 (Precision and Recall)</h3><p>앞선 정확도의 경우 전체 표본이 불균형한 경우 제대로 파악할 수 없다는 문제점이 있었다. 이러한 문제에서 고려해 볼 수 있는 평가지표가 바로 정밀도와 재현율이다.</p>
+<h3 id="정밀도-Preicision"><a href="#정밀도-Preicision" class="headerlink" title="- 정밀도(Preicision)"></a>- 정밀도(Preicision)</h3><p>정밀도는 모델이 정답이라고 에측한 것 중에서 실제로 정답인 수를 의미한다.<br><code>Precision = 실제로도 정답인 수(TP) / 정답이라고 예측한 수(TP+FP)</code></p>
+<blockquote>
+<p>precision이 높다는 것은 알고리즘이 관련 있는 결과를 그렇지 못한 것 대비 충분히 맞추었다는 의미로 볼 수 있다.</p>
+</blockquote>
+<h3 id="재현율-Recall"><a href="#재현율-Recall" class="headerlink" title="- 재현율(Recall)"></a>- 재현율(Recall)</h3><p>재현율은 실제 정답 중에서 모델이 정답이라고 맞춘 수를 의미한다.<br><code>Recall = 정답을 맞춘 수(TP) / 실제 정답 전체(TP+FN)</code></p>
+<blockquote>
+<p>recall이 높다는것은 알고리즘이 관련있는 결과를 최대한 많이 가져왔다 의미로 볼 수 있다.</p>
+</blockquote>
+<h4 id="모델의-효율성을-어떤-기준으로-판단하는가…"><a href="#모델의-효율성을-어떤-기준으로-판단하는가…" class="headerlink" title="모델의 효율성을 어떤 기준으로 판단하는가…?"></a>모델의 효율성을 어떤 기준으로 판단하는가…?</h4><p>재현율이 높기만 하다고 좋은 모델이라고 할 수 없다. 모든 예측 결과를 정답이라고 한다면, 정확도는 낮아도 정답은 정답이라고 예측하니 재현율은 100%가 나올 것이다. 마찬가지로, 정밀도도 높기만 하다고 좋은 모델이라고 할 수 없다. 모델의 효율성을 따지기 위해 두 가지를 모두 검토할 필요가 있다.</p>
+<h3 id="1-3-Precision과-Recall의-Trade-Off"><a href="#1-3-Precision과-Recall의-Trade-Off" class="headerlink" title="1.3 Precision과 Recall의 Trade-Off"></a>1.3 Precision과 Recall의 Trade-Off</h3><div align='cneter'><img src='https://user-images.githubusercontent.com/79561091/215390714-20ad729f-ed2a-470c-84ec-4d7246401747.png' /></div>
+<center>[그림3] Precision과 Recall의 Trade-Off 설명 이미지</center>
+
+<p>정밀도와 재현률은 상호 보완적 지표이기 때문에 어느 한쪽을 강제로 높이면 다른 한쪽은 수치가 내려가기 쉽다.</p>
+<h3 id="1-4-정밀도-재현률-곡선-Precision-Recall-Curve"><a href="#1-4-정밀도-재현률-곡선-Precision-Recall-Curve" class="headerlink" title="1.4 정밀도 재현률 곡선 (Precision-Recall Curve)"></a>1.4 정밀도 재현률 곡선 (Precision-Recall Curve)</h3><div align='cneter'><img src='https://user-images.githubusercontent.com/79561091/215390555-7c134300-3d68-441d-b03e-ee8f34a5febe.png' /></div>
+<center>[그림4] Precision-Recall Curve</center>
+-   Recall 값의 변화에 따른 Precision 값을 나타낸 곡선
+-   이렇게 얻어진 Precision 값의 평균을 AP라고 하며, 일반적으로 정밀도 재현률 곡선의 면적 값으로 계산된다.<br><br>
+
+<h3 id="1-5-F1-스코어"><a href="#1-5-F1-스코어" class="headerlink" title="1.5 F1 스코어"></a>1.5 F1 스코어</h3><p>F1 스코어는 Precision과 Recall의 조화평균(harmonic mean)을 의미하여,<br>F1 스코어가 1에 도달할 때 최적의 Precision과 Recall을 의미하며, 0이 최악을 의미한다.</p>
+<p><code>F1 Score** = (2 * Precision * Recall) / (Precision + Recall)</code></p>
+<p>F1 스코어는 편중된 값을 더 크게 조정시킨다.<br>그렇기에 이상적으로 볼때, F1 스코어는 아래의 분류 시나리오들에서 효과적인 평가지표로 사용될 수 있다.</p>
+<ul>
+<li>FP와 FN이 동등하게 중요할때 - True Positive를 놓치거나 False Positive 로 잘못 판단했을 경우</li>
+<li>둘다 모델에 비슷하게 영향을 끼친다(암환자 분류 예시처럼)</li>
+<li>추가되는 데이터가 결과에 크게 영향을 끼치지 않는 경우</li>
+<li>TN이 중요할 경우(홍수 예측이나, 암환자 예측 등)</li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2023 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
