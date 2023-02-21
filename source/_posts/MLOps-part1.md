@@ -1,5 +1,5 @@
 title: MLOps - part1
-author: John Doe
+author: Daehan Kang
 date: 2023-02-07 17:27:20
 tags:
 ---
