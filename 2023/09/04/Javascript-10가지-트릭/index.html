@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="구조 분해 할당을 이용한 변수 swap
+
+
+ES6의 구조 분해 할당 문법을 사용하여 두 변수를 swap 할 수 있다
+
+123let a = 5, b = 10;[a.b] = [b,a];console.log(a,b); // 10, 5
+
+
+배열 생성으로 루프 제거하기
+
+
+보통"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Daehan Kang"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Javascript 10가지 Tip!"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="구조 분해 할당을 이용한 변수 swap
+
+
+ES6의 구조 분해 할당 문법을 사용하여 두 변수를 swap 할 수 있다
+
+123let a = 5, b = 10;[a.b] = [b,a];console.log(a,b); // 10, 5
+
+
+배열 생성으로 루프 제거하기
+
+
+보통"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="DevLog[기록저장소]"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://twinfamily.github.ioimg/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://twinfamily.github.ioimg/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>Javascript 10가지 Tip! - DevLog[기록저장소]</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Daehan의 Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Javascript 10가지 Tip!</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                            Posted by Daehan Kang on
+                        
+                        
+                            2023-09-04
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ol>
+<li>구조 분해 할당을 이용한 변수 swap</li>
+</ol>
+<ul>
+<li>ES6의 구조 분해 할당 문법을 사용하여 두 변수를 swap 할 수 있다</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">5</span>, b = <span class="number">10</span>;</span><br><span class="line">[a.<span class="property">b</span>] = [b,a];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a,b); <span class="comment">// 10, 5</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>배열 생성으로 루프 제거하기</li>
+</ol>
+<ul>
+<li>보통 단순히 범위 루프를 돌고 싶다면 다음과 같이 코드를 작성한다.</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">5</span>; i &lt; <span class="number">10</span>; i += <span class="number">1</span>) &#123;</span><br><span class="line">    sum += i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>만약 범위 루프를 함수형 프로그래밍 방식으로 사용하고 싶다면 배열을 생성해서 사용할 수 있다.</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sum = <span class="title class_">Array</span></span><br><span class="line">    .<span class="title function_">from</span>(<span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">5</span>), <span class="function">(<span class="params">_, k</span>) =&gt;</span> k + <span class="number">5</span>)</span><br><span class="line">    .<span class="title function_">reduce</span>(<span class="function">(<span class="params">acc, cur</span>) =&gt;</span> acc + cur, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>배열 내 같은 요소 제거하기</li>
+</ol>
+<ul>
+<li><code>Set</code>을 이용할 수 있습니다.</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> names = [<span class="string">&#x27;Lee&#x27;</span>, <span class="string">&#x27;Kim&#x27;</span>, <span class="string">&#x27;Park&#x27;</span>, <span class="string">&#x27;Lee&#x27;</span>, <span class="string">&#x27;Kim&#x27;</span>];</span><br><span class="line"><span class="keyword">const</span> uniqueNamesWithArrayFrom = <span class="title class_">Array</span>.<span class="title function_">from</span>(<span class="keyword">new</span> <span class="title class_">Set</span>(names));</span><br><span class="line"><span class="keyword">const</span> uniqueNamesWithSpread = [...<span class="keyword">new</span> <span class="title class_">Set</span>(names)];</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>Spread 연산자를 이용한 객체 병합</li>
+</ol>
+<ul>
+<li>두 객체를 별도 변수에 합쳐줄 수 있다</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;Lee Sun-Hyoup&#x27;</span>,</span><br><span class="line">    <span class="attr">familyName</span>: <span class="string">&#x27;Lee&#x27;</span>,</span><br><span class="line">    <span class="attr">givenName</span>: <span class="string">&#x27;Sun-Hyoup&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> company = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;Cobalt. Inc.&#x27;</span>,</span><br><span class="line">    <span class="attr">address</span>: <span class="string">&#x27;Seoul&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> leeSunHyoup = &#123; ...person, ...company &#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(leeSunHyoup);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   address: “Seoul”</span></span><br><span class="line"><span class="comment">//     familyName: “Lee”</span></span><br><span class="line"><span class="comment">//   givenName: “Sun-Hyoup”</span></span><br><span class="line"><span class="comment">//   name: &quot;Cobalt. Inc.&quot; // 같은 키는 마지막에 대입된 값으로 정해진다.</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>&amp;&amp;와 || 활용</li>
+</ol>
+<ul>
+<li>&amp;&amp;와 ||는 조건문 외에서도 활용될 수 있다</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// ||</span></span><br><span class="line"><span class="comment">// 기본값을 넣어주고 싶을 때 사용할 수 있습니다.</span></span><br><span class="line"><span class="comment">// participantName이 0, undefined, 빈 문자열, null일 경우 &#x27;Guest&#x27;로 할당됩니다.</span></span><br><span class="line"><span class="keyword">const</span> name = participantName || <span class="string">&#x27;Guest&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// &amp;&amp;</span></span><br><span class="line"><span class="comment">// flag가 true일 경우에만 실행됩니다.</span></span><br><span class="line">flag &amp;&amp; <span class="title function_">func</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 객체 병합에도 이용할 수 있습니다.</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">makeCompany</span> = (<span class="params">showAddress</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;Cobalt. Inc.&#x27;</span>,</span><br><span class="line">    ...showAddress &amp;&amp; &#123; <span class="attr">address</span>: <span class="string">&#x27;Seoul&#x27;</span> &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">makeCompany</span>(<span class="literal">false</span>));</span><br><span class="line"><span class="comment">// &#123; name: &#x27;Cobalt. Inc.&#x27; &#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">makeCompany</span>(<span class="literal">true</span>));</span><br><span class="line"><span class="comment">// &#123; name: &#x27;Cobalt. Inc.&#x27;, address: &#x27;Seoul&#x27; &#125;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>구조 분해 할당 사용하기</li>
+</ol>
+<ul>
+<li>객체에서 필요한 것만 꺼내 쓰는 것이 좋다.</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;Lee Sun-Hyoup&#x27;</span>,</span><br><span class="line">    <span class="attr">familyName</span>: <span class="string">&#x27;Lee&#x27;</span>,</span><br><span class="line">    <span class="attr">givenName</span>: <span class="string">&#x27;Sun-Hyoup&#x27;</span></span><br><span class="line">    <span class="attr">company</span>: <span class="string">&#x27;Cobalt. Inc.&#x27;</span>,</span><br><span class="line">    <span class="attr">address</span>: <span class="string">&#x27;Seoul&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; familyName, givenName &#125; = person;</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>객체 생성시 키 생략방법</li>
+</ol>
+<ul>
+<li>객체를 생성할 때 프로퍼티 키를 변수 이름으로 생략할 수 있다.</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">&#x27;Lee Sun-Hyoup&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> company = <span class="string">&#x27;Cobalt&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  name,</span><br><span class="line">  company</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   name: &#x27;Lee Sun-Hyoup&#x27;</span></span><br><span class="line"><span class="comment">//   company: &#x27;Cobalt&#x27;,</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>비구조화 할당 사용하기</li>
+</ol>
+<ul>
+<li>함수에 객체를 넘길 경우 필요한 것만 꺼내 쓸 수 있다.</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">makeCompany</span> = (<span class="params">&#123; name, address, serviceName &#125;</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    name,</span><br><span class="line">    address,</span><br><span class="line">    serviceName</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> cobalt = <span class="title function_">makeCompany</span>(&#123; <span class="attr">name</span>: <span class="string">&#x27;Cobalt. Inc.&#x27;</span>, <span class="attr">address</span>: <span class="string">&#x27;Seoul&#x27;</span>, <span class="attr">serviceName</span>: <span class="string">&#x27;Present&#x27;</span> &#125;);</span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li>동적 속성 이름</li>
+</ol>
+<ul>
+<li>ES6에 추가된 기능으로 객체의 키를 동적으로 생성 할 수 있다.</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> nameKey = <span class="string">&#x27;name&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> emailKey = <span class="string">&#x27;email&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  [nameKey]: <span class="string">&#x27;Lee Sun-Hyoup&#x27;</span>,</span><br><span class="line">  [emailKey]: <span class="string">&#x27;kciter@naver.com&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   name: &#x27;Lee Sun-Hyoup&#x27;,</span></span><br><span class="line"><span class="comment">//   email: &#x27;kciter@naver.com&#x27;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="10">
+<li>!! 연산자를 사용하여 Boolean 값으로 바꾸기</li>
+</ol>
+<ul>
+<li>!! 연산자를 이용하여 <code>0, null, 빈 문자열, undefined, NaN</code>을 <code>false</code>로 그 외에는 <code>true</code>로 변경할 수 있습니다.</li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2023 Daehan Kang<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
