@@ -1,8 +1,10 @@
 title: React Clean Code Tip!
 author: Daehan Kang
-date: 2023-09-04 13:01:25
-categories: [React]
-tags: [React]
+categories:
+  - React
+tags:
+  - React
+date: 2023-09-04 13:01:00
 subTitle:
 ---
 1. 단일 조건인 조건부 렌더링에는 && 를 쓰자
