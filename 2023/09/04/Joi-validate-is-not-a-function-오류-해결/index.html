@@ -13,6 +13,11 @@
     
 
     
+        <meta name="description" content="출간된지 오래된 책들을 보면
+1const result = Joi.validate(body, schema);
+Joi를 이런 방식의 문법으로 안내하고 있다.
+하지만 바뀌었는지 계속 Joi.validate is not a function 이란 오류만 내고 있다.새로운 문법으"/>
+    
 
     <!--Author-->
     
@@ -21,10 +26,15 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Tags"/>
+        <meta property="og:title" content="Joi.validate is not a function 오류 해결"/>
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="출간된지 오래된 책들을 보면
+1const result = Joi.validate(body, schema);
+Joi를 이런 방식의 문법으로 안내하고 있다.
+하지만 바뀌었는지 계속 Joi.validate is not a function 이란 오류만 내고 있다.새로운 문법으"/>
     
 
     <!--Open Graph Site Name-->
@@ -51,7 +61,7 @@
 
     <!-- Title -->
     
-    <title>Tags - DevLog[기록저장소]</title>
+    <title>Joi.validate is not a function 오류 해결 - DevLog[기록저장소]</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -155,83 +165,86 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-
-    <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>Tags</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
-                    <div class="post-preview">
-    <a href="/tags/javascript/">
-        <h1 class="post-title archive">
-            javascript
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/React/">
-        <h1 class="post-title archive">
-            React
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/데이터분석/">
-        <h1 class="post-title archive">
-            데이터분석
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/회고/">
-        <h1 class="post-title archive">
-            회고
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/MLOps/">
-        <h1 class="post-title archive">
-            MLOps
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/error/">
-        <h1 class="post-title archive">
-            error
-        </h1>
-    </a>
-</div>
-                
-                <div class="archive-before-pagination"></div>
+                <div class="post-heading">
+                    <h1>Joi.validate is not a function 오류 해결</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                            Posted by Daehan Kang on
+                        
+                        
+                            2023-09-04
+                        
+                    </span>
+                </div>
             </div>
         </div>
     </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
 
 
+<a href="/tags/error/">#error</a>
 
 
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
 
+<a href="/categories/error/">error</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>출간된지 오래된 책들을 보면</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const result = Joi.validate(body, schema);</span><br></pre></td></tr></table></figure>
+<p>Joi를 이런 방식의 문법으로 안내하고 있다.</p>
+<p>하지만 바뀌었는지 계속 Joi.validate is not a function 이란 오류만 내고 있다.<br>새로운 문법으로 바뀐것 같아서 API 제공 문서를 보니 버전이 업데이트 되면서 변경 되었다고 한다.</p>
+<p>관련 API 문서 (<a target="_blank" rel="noopener" href="https://joi.dev/api/?v=17.9.1">https://joi.dev/api/?v=17.9.1</a>)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const validation = schema.validate(body);</span><br></pre></td></tr></table></figure>
+<p>이런식으로 schema에 validate함수를 실행하고, 인자로 body를 넣는다.<br>항상 사용하고 있는 라이브러리나 프레임워크의 버전 업데이트를 확인 해보자.<br>이것 때문에 몇시간을 허비했는데 허무하다.</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
 
     <!-- Footer -->
     <hr />
