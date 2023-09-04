@@ -226,7 +226,7 @@ throw 키워드 : 예외를 발생시키는 데 사용한다.
 <li>try ~ catch 처리</li>
 </ol>
 <p>throw 키워드 : 예외를 발생시키는 데 사용한다.</p>
-<p>예외를 잡아내기 위해서는 try 블록으로 코드를 감싼다음 catch 키워드를 사용한다.<br><br><br>try 블록 안의 코드에서 예외가 발생하면, 예외 값이 바인딩된 괄호 안의 이름(error)을 사용해서 catch 블록이 처리된다.<br><br><br>catch 블록이 완료되거나 try 블록이 문제없이 완료되면 프로그램은 try&#x2F;catch 문 이후 코드가 진행된다.</p>
+<p>예외를 잡아내기 위해서는 try 블록으로 코드를 감싼다음 catch 키워드를 사용한다.<br>try 블록 안의 코드에서 예외가 발생하면, 예외 값이 바인딩된 괄호 안의 이름(error)을 사용해서 catch 블록이 처리된다.<br>catch 블록이 완료되거나 try 블록이 문제없이 완료되면 프로그램은 try&#x2F;catch 문 이후 코드가 진행된다.</p>
 <p>[예시]</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function transfer(from, amount)&#123;</span><br><span class="line">	if(accounts[from] &lt; amount) return;</span><br><span class="line">	let progress = 0;</span><br><span class="line">	try &#123;</span><br><span class="line">		accounts[from] -= amount;</span><br><span class="line">		progress = 1;</span><br><span class="line">		accounts[getAccount()] += amount;</span><br><span class="line">		progress = 2;</span><br><span class="line">	&#125; finally &#123;</span><br><span class="line">		if(progress == 1)&#123;</span><br><span class="line">			accounts[from] += amount;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -240,7 +240,7 @@ throw 키워드 : 예외를 발생시키는 데 사용한다.
 <p>이 클래스는 고유의 생성자를 정의하지 않고 문자열 메세지를 인수로 받는 Error 생성자를 상속한다. 해당 클래스는 아무것도 정의되지 않고 비어있다. InputError 객체는 Error와 다른 클래스로 구별되는 점을 제외하면 Error 객체와 동일하게 작동한다.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">for(;;)&#123;</span><br><span class="line">	try&#123;</span><br><span class="line">		let dir = promptDirection(&#x27;Where?&#x27;);</span><br><span class="line">		console.log(&#x27;You chose&#x27;, dir);</span><br><span class="line">		break;</span><br><span class="line">	&#125; catch(e) &#123;</span><br><span class="line">		if(e instanceof InputError)&#123;</span><br><span class="line">			console.log(&quot;Try again&quot;);</span><br><span class="line">		&#125; else &#123;</span><br><span class="line">			throw e;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>해당 반복문에서는 InputError의 인스턴스만 잡아내고 관련없는 예외는 통과시키는 과정을 설명한다.<br><br><br>오류 식별에는 instanceof를 사용해서 식별하였다.</p>
+<p>해당 반복문에서는 InputError의 인스턴스만 잡아내고 관련없는 예외는 통과시키는 과정을 설명한다.<br>오류 식별에는 instanceof를 사용해서 식별하였다.</p>
 
 
                 
