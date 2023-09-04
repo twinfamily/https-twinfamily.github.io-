@@ -13,11 +13,6 @@
     
 
     
-        <meta name="description" content="React props 간편하게 전달하기
-
-react의 compoent를 생성한 뒤 props를 전달하다 보면 반복된 내용을 쓰게 되는 경우가 많다.
-12345678const &amp;#123;title, name, contnets&amp;#125; = data;const onOthe"/>
-    
 
     <!--Author-->
     
@@ -26,15 +21,10 @@ react의 compoent를 생성한 뒤 props를 전달하다 보면 반복된 내용
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="React 3가지 Tip!"/>
+        <meta property="og:title" content="DevLog[기록저장소]"/>
     
 
     <!--Open Graph Description-->
-    
-        <meta property="og:description" content="React props 간편하게 전달하기
-
-react의 compoent를 생성한 뒤 props를 전달하다 보면 반복된 내용을 쓰게 되는 경우가 많다.
-12345678const &amp;#123;title, name, contnets&amp;#125; = data;const onOthe"/>
     
 
     <!--Open Graph Site Name-->
@@ -42,7 +32,7 @@ react의 compoent를 생성한 뒤 props를 전달하다 보면 반복된 내용
 
     <!--Type page-->
     
-        <meta property="og:type" content="article"/>
+        <meta property="og:type" content="website"/>
     
 
     <!--Page Cover-->
@@ -61,7 +51,7 @@ react의 compoent를 생성한 뒤 props를 전달하다 보면 반복된 내용
 
     <!-- Title -->
     
-    <title>React 3가지 Tip! - DevLog[기록저장소]</title>
+    <title>clean code - DevLog[기록저장소]</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -165,92 +155,51 @@ react의 compoent를 생성한 뒤 props를 전달하다 보면 반복된 내용
 </nav>
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<!-- Set your background image for this header in your post front-matter: cover -->
+    
 
+<!-- Page Header -->
+<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1>React 3가지 Tip!</h1>
-                    
-                    <span class="meta">
-                        <!-- Date and Author -->
-                        
-                            Posted by Daehan Kang on
-                        
-                        
-                            2023-09-04
-                        
-                    </span>
+                <div class="site-heading">
+                    <h1>#clean code</h1>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-
-            <!-- Tags and categories -->
-           
-                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
-                    
-                        
-
-
-<a href="/tags/javascript/">#javascript</a> <a href="/tags/React/">#React</a>
-
-
-                    
-                </div>
-                <div class="col-lg-4 col-md-5 post-categories">
-                    
-                </div>
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             
-
-            <!-- Gallery -->
+                <div class="post-preview">
+    <a href="/2023/09/04/React-Clean-Code-Tip/">
+        <h1 class="post-title archive">
+            React Clean Code Tip!
+        </h1>
+    </a>
+    <p class="post-meta archive">
+        <!-- Date and Author -->
+        
+            Posted by Daehan Kang on
+        
+        2023-09-04
+    </p>
+</div>
             
-
-            <!-- Post Main Content -->
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ol>
-<li>React props 간편하게 전달하기</li>
-</ol>
-<p>react의 compoent를 생성한 뒤 props를 전달하다 보면 반복된 내용을 쓰게 되는 경우가 많다.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const &#123;title, name, contnets&#125; = data;</span><br><span class="line">const onOtherNameFunc = () =&gt; alert(&#x27;Click!&#x27;);</span><br><span class="line"></span><br><span class="line">// bad</span><br><span class="line">&lt;Component title=&#123;title&#125; name=&#123;name&#125; contents=&#123;contents&#125; onClick=&#123;onOtherNameFunc&#125; /&gt;</span><br><span class="line"></span><br><span class="line">// good</span><br><span class="line">&lt;Component &#123;...&#123;title, name, contents&#125;&#125; onClick=&#123;onOtherNameFunc&#125; /&gt;</span><br></pre></td></tr></table></figure>
-
-<br>
-<br>
-2. Map props 효율적으로 전달하기
-
-<p>map을 사용할 때 하나의 id와 같은 하나의 props를 위해 구조 분해 할당을 하기에는 번거로울 때가 있다.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// bad</span><br><span class="line">&#123;list.map((data) =&gt; (</span><br><span class="line">  &lt;Components &#123;...data&#125; key=&#123;data?.id&#125; /&gt;</span><br><span class="line">))&#125;</span><br><span class="line"></span><br><span class="line">// good</span><br><span class="line">&#123;list.map((&#123; id, ...listData &#125;) =&gt; (</span><br><span class="line">  &lt;Components &#123;...&#123; id, ...listData &#125;&#125; key=&#123;id&#125; /&gt;</span><br><span class="line">))&#125;</span><br></pre></td></tr></table></figure>
-
-<br>
-<br>
-3. 객체나 배열에 조건부 할당하기
-
-<p>객체나 배열을 생성할 때 한 가지 정도가 조건에 따라 할당되거나 변경되는 경우 가 많은데 그 경우 분기를 통해 아예 다시 생성하는 경우가 많다.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// bad</span><br><span class="line">let data = &#123;</span><br><span class="line">	id,</span><br><span class="line">	title,</span><br><span class="line">    contents,</span><br><span class="line">&#125;;</span><br><span class="line">if(custom) data.type = &#x27;custom&#x27;</span><br><span class="line">if(status) data.status = &#x27;good&#x27;;</span><br><span class="line"></span><br><span class="line">// good</span><br><span class="line">const data = &#123;</span><br><span class="line">	id,</span><br><span class="line">	title,</span><br><span class="line">    contents,</span><br><span class="line">  ...(custom &amp;&amp; &#123;type : &#x27;custom&#x27;&#125;),</span><br><span class="line">  ...(status &amp;&amp; &#123; status: &#x27;good&#x27; &#125;),</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-                
-            </div>
-
-            <!-- Comments -->
-            
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    
-
-
-                </div>
-            
+            <div class="archive-before-pagination"></div>
+            <ul class="pager">
+    
+    
+</ul>
         </div>
     </div>
-</article>
+</div>
+
 
     <!-- Footer -->
     <hr />
