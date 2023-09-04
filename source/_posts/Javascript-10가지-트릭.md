@@ -1,8 +1,8 @@
 title: Javascript 10가지 Tip!
 author: Daehan Kang
 date: 2023-09-04 12:23:48
-tags:
-  - javascript
+categories: [javascript]
+tags: [javascript]
 subTitle:
 ---
 1. 구조 분해 할당을 이용한 변수 swap

@@ -1,9 +1,8 @@
 title: React 3가지 Tip!
 author: Daehan Kang
 date: 2023-09-04 12:45:56
-tags: 
-  - React
-  - javascript
+categories: [React]
+tags: [React]
 subTitle:
 ---
 1. React props 간편하게 전달하기
