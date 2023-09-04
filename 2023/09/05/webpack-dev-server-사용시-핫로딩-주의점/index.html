@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="Redux가 아직까지 많이 사용되고 있지만 Redux를 대체하고 여러 상태관리 라이브러리들을 적용하는 분명한 단점도 존재합니다.그것은 바로 보일러플레이트 코드 때문입니다. 이것을 극복하고 최소한의 코드로 상태 관리 하는 방법을 찾아보게 되었는데 그것은 바로 Zustan"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Daehan Kang"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="React 상태관리 라이브러리 - Zustand"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Redux가 아직까지 많이 사용되고 있지만 Redux를 대체하고 여러 상태관리 라이브러리들을 적용하는 분명한 단점도 존재합니다.그것은 바로 보일러플레이트 코드 때문입니다. 이것을 극복하고 최소한의 코드로 상태 관리 하는 방법을 찾아보게 되었는데 그것은 바로 Zustan"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="DevLog[기록저장소]"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://twinfamily.github.ioimg/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://twinfamily.github.ioimg/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>React 상태관리 라이브러리 - Zustand - DevLog[기록저장소]</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Daehan의 Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>React 상태관리 라이브러리 - Zustand</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                            Posted by Daehan Kang on
+                        
+                        
+                            2023-09-05
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/React/">#React</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/React/">React</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>Redux가 아직까지 많이 사용되고 있지만 Redux를 대체하고 여러 상태관리 라이브러리들을 적용하는 분명한 단점도 존재합니다.<br>그것은 바로 보일러플레이트 코드 때문입니다. 이것을 극복하고 최소한의 코드로 상태 관리 하는 방법을 찾아보게 되었는데 그것은 바로 Zustand입니다.</p>
+<p>Zustand의 사용법에 대해서 간단히 알아보기 위해서 포스팅 합니다.<br>Jotai를 만든 개발진들이 Zustand도 만든 것으로 알려져 있습니다.<br>Zustand가 가진 아주 강력한 장점은 굉장히 쉽다는 것입니다. 보일러플레이트가 거의 없다 싶을 정도로 간단한 코드만 필요로 하고요. 아주 쉽게 연결할 수 있습니다. 또한 Redux Devtools를 사용할 수 있어서 Debugging을 하는데도 아주 용이합니다.</p>
+<h4 id="Zustand-사용법"><a href="#Zustand-사용법" class="headerlink" title="Zustand 사용법"></a>Zustand 사용법</h4><ol>
+<li>Zustand 설치</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i zustand # or yarn add zustand</span><br></pre></td></tr></table></figure>
+<br>
+2. store 생성
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// store.js</span><br><span class="line"></span><br><span class="line">import create from &#x27;zustand&#x27; // create로 zustand를 불러옵니다.</span><br><span class="line"></span><br><span class="line">const useStore = create(set =&gt; (&#123;</span><br><span class="line">  bears: 0,</span><br><span class="line">  increasePopulation: () =&gt; set(state =&gt; (&#123; bears: state.bears + 1 &#125;)),</span><br><span class="line">  removeAllBears: () =&gt; set(&#123; bears: 0 &#125;)</span><br><span class="line">&#125;))</span><br><span class="line"></span><br><span class="line">export default useStore</span><br></pre></td></tr></table></figure>
+<p>bears 라는 초기값을 선언한다.<br>그 값을 조작하는 increasePopulation(bears를 1씩 증가)과 removeAllBears(bears를 0으로 리셋)를 선언합니다. 이때는 set을 활용합니다.<br><br><br>3. store에 생성한 useStore를 불러와서 사용하기</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// App.js</span><br><span class="line"></span><br><span class="line">import useStore from &#x27;../store.js&#x27;</span><br><span class="line"></span><br><span class="line">const App = () =&gt; &#123;</span><br><span class="line">  const &#123; bears, increasePopulation, removeAllBears &#125; = useStore(state =&gt; state)</span><br><span class="line">  </span><br><span class="line">  return (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      &lt;h1&gt;&#123;bears&#125; around here ...&lt;/h1&gt;</span><br><span class="line">      &lt;button onClick=&#123;increasePopulation&#125;&gt;one up&lt;/button&gt;</span><br><span class="line">      &lt;button onClick=&#123;removeAllBears&#125;&gt;remove all&lt;/button&gt;</span><br><span class="line">    &lt;/&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>store에 선언한 값과 메서드를 useStore를 통해 불러와서 아주 간단하게 사용할 수 있습니다. 코드 작성은 이게 끝이고 이제 devtool 연결을 통한 디버깅 설정을 합니다.<br><br></p>
+<h4 id="Devtools를-통해-상태-Debugging하기"><a href="#Devtools를-통해-상태-Debugging하기" class="headerlink" title="Devtools를 통해 상태 Debugging하기"></a>Devtools를 통해 상태 Debugging하기</h4><p>먼저 Redux DevTools를 Chrome 웹 스토어에서 설치해줍니다.<br>이후에는 위에 2에서 생성한 store에서 devtools를 불러온 후에 연결을 해줍니다. 그리고 현재 내가 작업하고 있는 애플리케이션을 브라우저로 띄운 다음 개발자 도구 창에서 Redux DevTools를 확인해보세요. store의 상태를 확인하실 수 있을 것입니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// store.js</span><br><span class="line"></span><br><span class="line">import create from &#x27;zustand&#x27;</span><br><span class="line">import &#123; devtools &#125; from &#x27;zustand/middleware&#x27;</span><br><span class="line"></span><br><span class="line">const store = (set) =&gt; (&#123;</span><br><span class="line">  bears: 0,</span><br><span class="line">  increasePopulation: () =&gt; set(state =&gt; (&#123; bears: state.bears + 1 &#125;)),</span><br><span class="line">  removeAllBears: () =&gt; set(&#123; bears: 0 &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">const useStore = create(devtools(store))</span><br><span class="line"></span><br><span class="line">export default useStore</span><br></pre></td></tr></table></figure>
+
+<h4 id="production일-때와-development일-때-분기처리"><a href="#production일-때와-development일-때-분기처리" class="headerlink" title="production일 때와 development일 때 분기처리"></a>production일 때와 development일 때 분기처리</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// store.js</span><br><span class="line"></span><br><span class="line">import create from &#x27;zustand&#x27;</span><br><span class="line">import &#123; devtools &#125; from &#x27;zustand/middleware&#x27;</span><br><span class="line"></span><br><span class="line">const store = (set) =&gt; (&#123;</span><br><span class="line">  bears: 0,</span><br><span class="line">  increasePopulation: () =&gt; set(state =&gt; (&#123; bears: state.bears + 1 &#125;)),</span><br><span class="line">  removeAllBears: () =&gt; set(&#123; bears: 0 &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">const useStore = create(</span><br><span class="line">  process.env.NODE_ENV !== &#x27;production&#x27; ? devtools(store) : store</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">export default useStore</span><br></pre></td></tr></table></figure>
+
+<p>개발환경에서는 상태를 Debugging하고 실제 배포시에는 분기처리를 통해 설정할 수 있습니다.</p>
+<p>[참고자료]<br><br><br><a target="_blank" rel="noopener" href="https://github.com/pmndrs/zustand">https://github.com/pmndrs/zustand</a><br><br><br><a target="_blank" rel="noopener" href="https://blacklobster.tistory.com/3">https://blacklobster.tistory.com/3</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2023 Daehan Kang<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
