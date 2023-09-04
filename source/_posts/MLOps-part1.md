@@ -1,8 +1,8 @@
 title: MLOps - part1
 author: Daehan Kang
 date: 2023-02-07 17:27:20
-categories: [데이터분석] [MlOps]
-tags: [MlOps] [데이터분석]
+categories: [머신러닝-파이프라인,MlOps]
+tags: [머신러닝-파이프라인,MlOps]
 ---
 # 머신러닝 모델 개발에서 마주하는 난관
 ---
