@@ -210,11 +210,13 @@ react의 compoent를 생성한 뒤 props를 전달하다 보면 반복된 내용
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const &#123;title, name, contnets&#125; = data;</span><br><span class="line">const onOtherNameFunc = () =&gt; alert(&#x27;Click!&#x27;);</span><br><span class="line"></span><br><span class="line">// bad</span><br><span class="line">&lt;Component title=&#123;title&#125; name=&#123;name&#125; contents=&#123;contents&#125; onClick=&#123;onOtherNameFunc&#125; /&gt;</span><br><span class="line"></span><br><span class="line">// good</span><br><span class="line">&lt;Component &#123;...&#123;title, name, contents&#125;&#125; onClick=&#123;onOtherNameFunc&#125; /&gt;</span><br></pre></td></tr></table></figure>
 
 <br>
+<br>
 2. Map props 효율적으로 전달하기
 
 <p>map을 사용할 때 하나의 id와 같은 하나의 props를 위해 구조 분해 할당을 하기에는 번거로울 때가 있다.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// bad</span><br><span class="line">&#123;list.map((data) =&gt; (</span><br><span class="line">  &lt;Components &#123;...data&#125; key=&#123;data?.id&#125; /&gt;</span><br><span class="line">))&#125;</span><br><span class="line"></span><br><span class="line">// good</span><br><span class="line">&#123;list.map((&#123; id, ...listData &#125;) =&gt; (</span><br><span class="line">  &lt;Components &#123;...&#123; id, ...listData &#125;&#125; key=&#123;id&#125; /&gt;</span><br><span class="line">))&#125;</span><br></pre></td></tr></table></figure>
 
+<br>
 <br>
 3. 객체나 배열에 조건부 할당하기
 
