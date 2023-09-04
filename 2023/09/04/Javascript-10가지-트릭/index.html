@@ -19,10 +19,7 @@
 ES6의 구조 분해 할당 문법을 사용하여 두 변수를 swap 할 수 있다
 
 123let a = 5, b = 10;[a.b] = [b,a];console.log(a,b); // 10, 5
-
-
-배열 생성으로 루프 제거하기
-
+2. 배열 생성으로 루프 제거하기
 
 보통"/>
     
@@ -45,10 +42,7 @@ ES6의 구조 분해 할당 문법을 사용하여 두 변수를 swap 할 수 �
 ES6의 구조 분해 할당 문법을 사용하여 두 변수를 swap 할 수 있다
 
 123let a = 5, b = 10;[a.b] = [b,a];console.log(a,b); // 10, 5
-
-
-배열 생성으로 루프 제거하기
-
+2. 배열 생성으로 루프 제거하기
 
 보통"/>
     
@@ -226,10 +220,7 @@ ES6의 구조 분해 할당 문법을 사용하여 두 변수를 swap 할 수 �
 <li>ES6의 구조 분해 할당 문법을 사용하여 두 변수를 swap 할 수 있다</li>
 </ul>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">5</span>, b = <span class="number">10</span>;</span><br><span class="line">[a.<span class="property">b</span>] = [b,a];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a,b); <span class="comment">// 10, 5</span></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>배열 생성으로 루프 제거하기</li>
-</ol>
+<p><br><br><br>2. 배열 생성으로 루프 제거하기</p>
 <ul>
 <li>보통 단순히 범위 루프를 돌고 싶다면 다음과 같이 코드를 작성한다.</li>
 </ul>
@@ -239,66 +230,42 @@ ES6의 구조 분해 할당 문법을 사용하여 두 변수를 swap 할 수 �
 <li>만약 범위 루프를 함수형 프로그래밍 방식으로 사용하고 싶다면 배열을 생성해서 사용할 수 있다.</li>
 </ul>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sum = <span class="title class_">Array</span></span><br><span class="line">    .<span class="title function_">from</span>(<span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">5</span>), <span class="function">(<span class="params">_, k</span>) =&gt;</span> k + <span class="number">5</span>)</span><br><span class="line">    .<span class="title function_">reduce</span>(<span class="function">(<span class="params">acc, cur</span>) =&gt;</span> acc + cur, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>배열 내 같은 요소 제거하기</li>
-</ol>
+<p><br><br><br>3. 배열 내 같은 요소 제거하기</p>
 <ul>
 <li><code>Set</code>을 이용할 수 있습니다.</li>
 </ul>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> names = [<span class="string">&#x27;Lee&#x27;</span>, <span class="string">&#x27;Kim&#x27;</span>, <span class="string">&#x27;Park&#x27;</span>, <span class="string">&#x27;Lee&#x27;</span>, <span class="string">&#x27;Kim&#x27;</span>];</span><br><span class="line"><span class="keyword">const</span> uniqueNamesWithArrayFrom = <span class="title class_">Array</span>.<span class="title function_">from</span>(<span class="keyword">new</span> <span class="title class_">Set</span>(names));</span><br><span class="line"><span class="keyword">const</span> uniqueNamesWithSpread = [...<span class="keyword">new</span> <span class="title class_">Set</span>(names)];</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>Spread 연산자를 이용한 객체 병합</li>
-</ol>
+<p><br><br><br>4. Spread 연산자를 이용한 객체 병합</p>
 <ul>
 <li>두 객체를 별도 변수에 합쳐줄 수 있다</li>
 </ul>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;Lee Sun-Hyoup&#x27;</span>,</span><br><span class="line">    <span class="attr">familyName</span>: <span class="string">&#x27;Lee&#x27;</span>,</span><br><span class="line">    <span class="attr">givenName</span>: <span class="string">&#x27;Sun-Hyoup&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> company = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;Cobalt. Inc.&#x27;</span>,</span><br><span class="line">    <span class="attr">address</span>: <span class="string">&#x27;Seoul&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> leeSunHyoup = &#123; ...person, ...company &#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(leeSunHyoup);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   address: “Seoul”</span></span><br><span class="line"><span class="comment">//     familyName: “Lee”</span></span><br><span class="line"><span class="comment">//   givenName: “Sun-Hyoup”</span></span><br><span class="line"><span class="comment">//   name: &quot;Cobalt. Inc.&quot; // 같은 키는 마지막에 대입된 값으로 정해진다.</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>&amp;&amp;와 || 활용</li>
-</ol>
+<p><br><br><br>5. &amp;&amp;와 || 활용</p>
 <ul>
 <li>&amp;&amp;와 ||는 조건문 외에서도 활용될 수 있다</li>
 </ul>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// ||</span></span><br><span class="line"><span class="comment">// 기본값을 넣어주고 싶을 때 사용할 수 있습니다.</span></span><br><span class="line"><span class="comment">// participantName이 0, undefined, 빈 문자열, null일 경우 &#x27;Guest&#x27;로 할당됩니다.</span></span><br><span class="line"><span class="keyword">const</span> name = participantName || <span class="string">&#x27;Guest&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// &amp;&amp;</span></span><br><span class="line"><span class="comment">// flag가 true일 경우에만 실행됩니다.</span></span><br><span class="line">flag &amp;&amp; <span class="title function_">func</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 객체 병합에도 이용할 수 있습니다.</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">makeCompany</span> = (<span class="params">showAddress</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;Cobalt. Inc.&#x27;</span>,</span><br><span class="line">    ...showAddress &amp;&amp; &#123; <span class="attr">address</span>: <span class="string">&#x27;Seoul&#x27;</span> &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">makeCompany</span>(<span class="literal">false</span>));</span><br><span class="line"><span class="comment">// &#123; name: &#x27;Cobalt. Inc.&#x27; &#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">makeCompany</span>(<span class="literal">true</span>));</span><br><span class="line"><span class="comment">// &#123; name: &#x27;Cobalt. Inc.&#x27;, address: &#x27;Seoul&#x27; &#125;</span></span><br></pre></td></tr></table></figure>
-
-<ol start="6">
-<li>구조 분해 할당 사용하기</li>
-</ol>
+<p><br><br><br>6. 구조 분해 할당 사용하기</p>
 <ul>
 <li>객체에서 필요한 것만 꺼내 쓰는 것이 좋다.</li>
 </ul>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;Lee Sun-Hyoup&#x27;</span>,</span><br><span class="line">    <span class="attr">familyName</span>: <span class="string">&#x27;Lee&#x27;</span>,</span><br><span class="line">    <span class="attr">givenName</span>: <span class="string">&#x27;Sun-Hyoup&#x27;</span></span><br><span class="line">    <span class="attr">company</span>: <span class="string">&#x27;Cobalt. Inc.&#x27;</span>,</span><br><span class="line">    <span class="attr">address</span>: <span class="string">&#x27;Seoul&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; familyName, givenName &#125; = person;</span><br></pre></td></tr></table></figure>
-
-<ol start="7">
-<li>객체 생성시 키 생략방법</li>
-</ol>
+<p><br><br><br>7. 객체 생성시 키 생략방법</p>
 <ul>
 <li>객체를 생성할 때 프로퍼티 키를 변수 이름으로 생략할 수 있다.</li>
 </ul>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">&#x27;Lee Sun-Hyoup&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> company = <span class="string">&#x27;Cobalt&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  name,</span><br><span class="line">  company</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   name: &#x27;Lee Sun-Hyoup&#x27;</span></span><br><span class="line"><span class="comment">//   company: &#x27;Cobalt&#x27;,</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
-
-<ol start="8">
-<li>비구조화 할당 사용하기</li>
-</ol>
+<p><br><br><br>8. 비구조화 할당 사용하기</p>
 <ul>
 <li>함수에 객체를 넘길 경우 필요한 것만 꺼내 쓸 수 있다.</li>
 </ul>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">makeCompany</span> = (<span class="params">&#123; name, address, serviceName &#125;</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    name,</span><br><span class="line">    address,</span><br><span class="line">    serviceName</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> cobalt = <span class="title function_">makeCompany</span>(&#123; <span class="attr">name</span>: <span class="string">&#x27;Cobalt. Inc.&#x27;</span>, <span class="attr">address</span>: <span class="string">&#x27;Seoul&#x27;</span>, <span class="attr">serviceName</span>: <span class="string">&#x27;Present&#x27;</span> &#125;);</span><br></pre></td></tr></table></figure>
-
-<ol start="9">
-<li>동적 속성 이름</li>
-</ol>
+<p><br><br><br>9. 동적 속성 이름</p>
 <ul>
 <li>ES6에 추가된 기능으로 객체의 키를 동적으로 생성 할 수 있다.</li>
 </ul>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> nameKey = <span class="string">&#x27;name&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> emailKey = <span class="string">&#x27;email&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  [nameKey]: <span class="string">&#x27;Lee Sun-Hyoup&#x27;</span>,</span><br><span class="line">  [emailKey]: <span class="string">&#x27;kciter@naver.com&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   name: &#x27;Lee Sun-Hyoup&#x27;,</span></span><br><span class="line"><span class="comment">//   email: &#x27;kciter@naver.com&#x27;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
-
-<ol start="10">
-<li>!! 연산자를 사용하여 Boolean 값으로 바꾸기</li>
-</ol>
+<p><br><br><br>10. !! 연산자를 사용하여 Boolean 값으로 바꾸기</p>
 <ul>
 <li>!! 연산자를 이용하여 <code>0, null, 빈 문자열, undefined, NaN</code>을 <code>false</code>로 그 외에는 <code>true</code>로 변경할 수 있습니다.</li>
 </ul>
