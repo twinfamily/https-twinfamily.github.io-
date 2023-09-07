@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="비동기 코드 문제를 다루는 방법으로 프로미스를 대신해서 사용 가능한 ES6 명세에 포함된 문법이다.
+1234//제너레이터 생성 함수 바로 뒤에 *를 붙인다.function* gen()&amp;#123;	return &amp;#x27;first&amp;#x27;;&amp;#125;
+
+
+제너레이터의 "/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Daehan Kang"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Javascript - generator"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="비동기 코드 문제를 다루는 방법으로 프로미스를 대신해서 사용 가능한 ES6 명세에 포함된 문법이다.
+1234//제너레이터 생성 함수 바로 뒤에 *를 붙인다.function* gen()&amp;#123;	return &amp;#x27;first&amp;#x27;;&amp;#125;
+
+
+제너레이터의 "/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="DevLog[기록저장소]"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://twinfamily.github.ioimg/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://twinfamily.github.ioimg/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>Javascript - generator - DevLog[기록저장소]</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Daehan의 Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Javascript - generator</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                            Posted by Daehan Kang on
+                        
+                        
+                            2023-09-08
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/javascript/">#javascript</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/javascript/">javascript</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>비동기 코드 문제를 다루는 방법으로 프로미스를 대신해서 사용 가능한 ES6 명세에 포함된 문법이다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//제너레이터 생성 함수 바로 뒤에 *를 붙인다.</span><br><span class="line">function* gen()&#123;</span><br><span class="line">	return &#x27;first&#x27;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br>
+
+<p>제너레이터의 값을 가져오는 방법으로는</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//.next() 함수로 상태를 호출가능</span><br><span class="line">let generatorResult = gen();</span><br><span class="line"></span><br><span class="line">generatorResult.next().value</span><br><span class="line">// &gt;&#x27;first&#x27;</span><br><span class="line"></span><br><span class="line">generatorResult.next().value</span><br><span class="line">// &gt;undifind</span><br></pre></td></tr></table></figure>
+<br>
+next 함수를 사용하여 값을 호출 시에는 재사용이 불가능하여 한번만 호출하여 사용 가능하고 재호출하면 해당 값은 비어있는 상태가 되기 때문에 undifined가 반환된다.
+
+<p>이를 해결하기 위해서,<br>yield 키워드라는 제너레이터 함수의 키워드를 사용한다.<br>yield 키워드는 함수를 정지모드로 하며 값을 반환한다. 정지된 곳에서 다시 yield 키워드를 사용하여 다음 라인의 값을 반환 할 수 있다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function* generatorSequence() &#123;</span><br><span class="line">  yield &#x27;first&#x27;;</span><br><span class="line">  yield &#x27;second&#x27;;</span><br><span class="line">  yield &#x27;third&#x27;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let generatorSequenceResult = generatorSequence();</span><br><span class="line"></span><br><span class="line">console.log(&#x27;First time sequence value&#x27;,generatorSequenceResult.next().value)</span><br><span class="line">console.log(&#x27;Second time sequence value&#x27;,generatorSequenceResult.next().value)</span><br><span class="line">console.log(&#x27;thrid time sequence value&#x27;,generatorSequenceResult.next().value)</span><br><span class="line"></span><br><span class="line">// &gt;First time sequence value</span><br><span class="line">// &gt;Second time sequence value</span><br><span class="line">// &gt;thrid time sequence value</span><br></pre></td></tr></table></figure>
+<br>
+
+<h4 id="제너레이터의-done-속성"><a href="#제너레이터의-done-속성" class="headerlink" title="제너레이터의 done 속성"></a>제너레이터의 done 속성</h4><p>제너레이터 next 호출 할 때마다 객체에 done 속성으로 next의 값이 전부 사용 됐는지 확인 할수 있다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//next 함수 호출 시 다음과 같은 객체를 반환한다.</span><br><span class="line">&#123;value: &#x27;value&#x27;, done: false&#125;</span><br><span class="line"></span><br><span class="line">let generatorSequenceResult = generatorSequence();</span><br><span class="line"></span><br><span class="line">console.log(&#x27;First time sequence value&#x27;,generatorSequenceResult.next())</span><br><span class="line">console.log(&#x27;Second time sequence value&#x27;,generatorSequenceResult.next())</span><br><span class="line">console.log(&#x27;thrid time sequence value&#x27;,generatorSequenceResult.next())</span><br><span class="line"></span><br><span class="line">// &gt;First time sequence value &#123;value: &#x27;first&#x27;, done: false&#125;</span><br><span class="line">// &gt;Second time sequence value &#123;value: &#x27;second&#x27;, done: false&#125;</span><br><span class="line">// &gt;thrid time sequence value &#123;value: &#x27;thrid&#x27;, done: false&#125;</span><br><span class="line"></span><br><span class="line">console.log(&#x27;재호출하면... &#x27;,generatorSequenceResult.next())</span><br><span class="line">// &gt;&#x27;재호출하면... &#x27; &#123;value: undifined, done: true&#125;</span><br></pre></td></tr></table></figure>
+
+<p>제너레이터의 값을 모두 사용했음을 done을 통해 확인 가능하다.</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2023 Daehan Kang<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
