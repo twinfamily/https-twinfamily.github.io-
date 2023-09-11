@@ -1,4 +1,4 @@
-title: PlantUML UML 사용한 프로젝트 설계 방법
+title: PlantUML을 이용한 프로젝트 설계 방법
 author: Daehan Kang
 tags:
   - UI 설계
