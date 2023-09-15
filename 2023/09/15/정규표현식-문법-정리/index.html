@@ -13,6 +13,34 @@
     
 
     
+        <meta name="description" content="정규식 플래그 정의
+
+
+패턴
+의미
+
+
+
+i
+대소문자를 구별하지 않고 검색
+
+
+g
+문자열 내의 모든 패턴을 검색한다
+
+
+m
+문자열의 행이 바뀌더라도 검색을 계속함.
+
+
+s
+.​(모든 문자 정규식)이 개행 문자 \n도 포함하도록
+
+
+u
+unicode	유니코드 전체를 지원
+"/>
+    
 
     <!--Author-->
     
@@ -21,10 +49,38 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="DevLog[기록저장소]"/>
+        <meta property="og:title" content="정규표현식 문법 정리"/>
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="정규식 플래그 정의
+
+
+패턴
+의미
+
+
+
+i
+대소문자를 구별하지 않고 검색
+
+
+g
+문자열 내의 모든 패턴을 검색한다
+
+
+m
+문자열의 행이 바뀌더라도 검색을 계속함.
+
+
+s
+.​(모든 문자 정규식)이 개행 문자 \n도 포함하도록
+
+
+u
+unicode	유니코드 전체를 지원
+"/>
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +88,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website"/>
+        <meta property="og:type" content="article"/>
     
 
     <!--Page Cover-->
@@ -51,7 +107,7 @@
 
     <!-- Title -->
     
-    <title>javascript - DevLog[기록저장소]</title>
+    <title>정규표현식 문법 정리 - DevLog[기록저장소]</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -155,111 +211,207 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>javascript</h1>
+                <div class="post-heading">
+                    <h1>정규표현식 문법 정리</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                            Posted by Daehan Kang on
+                        
+                        
+                            2023-09-15
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/javascript/">#javascript</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/javascript/">javascript</a>
+
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/2023/09/15/정규표현식-문법-정리/">
-        <h1 class="post-title archive">
-            정규표현식 문법 정리
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-            Posted by Daehan Kang on
-        
-        2023-09-15
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2023/09/08/Javascript-generator/">
-        <h1 class="post-title archive">
-            Javascript - generator
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-            Posted by Daehan Kang on
-        
-        2023-09-08
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3 id="정규식-플래그-정의"><a href="#정규식-플래그-정의" class="headerlink" title="정규식 플래그 정의"></a>정규식 플래그 정의</h3><table>
+<thead>
+<tr>
+<th align="center">패턴</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">i</td>
+<td>대소문자를 구별하지 않고 검색</td>
+</tr>
+<tr>
+<td align="center">g</td>
+<td>문자열 내의 모든 패턴을 검색한다</td>
+</tr>
+<tr>
+<td align="center">m</td>
+<td>문자열의 행이 바뀌더라도 검색을 계속함.</td>
+</tr>
+<tr>
+<td align="center">s</td>
+<td>.​(모든 문자 정규식)이 개행 문자 \n도 포함하도록</td>
+</tr>
+<tr>
+<td align="center">u</td>
+<td>unicode	유니코드 전체를 지원</td>
+</tr>
+<tr>
+<td align="center">y</td>
+<td>문자 내 특정 위치에서 검색을 진행하는 ‘sticky’ 모드를 활성화</td>
+</tr>
+<tr>
+<td align="center"><br></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="정규식-기호"><a href="#정규식-기호" class="headerlink" title="정규식 기호"></a>정규식 기호</h3><table>
+<thead>
+<tr>
+<th align="center">패턴</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">a-zA-Z</td>
+<td>영어알파벳(-으로 범위 지정)</td>
+</tr>
+<tr>
+<td align="center">ㄱ-ㅎ가-힣</td>
+<td>한글 문자(-으로 범위 지정)</td>
+</tr>
+<tr>
+<td align="center">0-9</td>
+<td>숫자(-으로 범위 지정)</td>
+</tr>
+<tr>
+<td align="center">.</td>
+<td>모든 문자열(숫자, 한글, 영어, 특수기호, 공백 모두)<br>단, 줄바꿈 X</td>
+</tr>
+<tr>
+<td align="center">\d</td>
+<td>숫자</td>
+</tr>
+<tr>
+<td align="center">\D</td>
+<td>숫자가 아닌 것</td>
+</tr>
+<tr>
+<td align="center">\w</td>
+<td>밑줄 문자를 포함한 영숫자 문자에 대응<br>[A-Za-z0-9_] 와 동일</td>
+</tr>
+<tr>
+<td align="center">\W</td>
+<td>\w 가 아닌 것</td>
+</tr>
+<tr>
+<td align="center">\s</td>
+<td>space 공백</td>
+</tr>
+<tr>
+<td align="center">\S</td>
+<td>space 공백이 아닌 것</td>
+</tr>
+<tr>
+<td align="center">\특수기호</td>
+<td>특수기호 * ^ &amp; ! ? …등</td>
+</tr>
+<tr>
+<td align="center">\b</td>
+<td>63개 문자(영문 대소문자 52개 + 숫자 10개 + _(underscore))가 아닌 나머지 문자에 일치하는 경계(boundary)</td>
+</tr>
+<tr>
+<td align="center">\B</td>
+<td>63개 문자에 일치하는 경계</td>
+</tr>
+<tr>
+<td align="center">\x</td>
+<td>16진수 문자에 일치 <br>&#x2F;\x61&#x2F;는 a에 일치</td>
+</tr>
+<tr>
+<td align="center">\0</td>
+<td>8진수 문자에 일치<br>&#x2F;\141&#x2F;은 a에 일치</td>
+</tr>
+<tr>
+<td align="center">\u</td>
+<td>유니코드(Unicode) 문자에 일치<br>&#x2F;\u0061&#x2F;는 a에 일치</td>
+</tr>
+<tr>
+<td align="center">\c</td>
+<td>제어(Control) 문자에 일치</td>
+</tr>
+<tr>
+<td align="center">\f</td>
+<td>폼 피드(FF, U+000C) 문자에 일치</td>
+</tr>
+<tr>
+<td align="center">\n</td>
+<td>줄 바꿈(LF, U+000A) 문자에 일치</td>
+</tr>
+<tr>
+<td align="center">\r</td>
+<td>캐리지 리턴(CR, U+000D) 문자에 일치</td>
+</tr>
+<tr>
+<td align="center">\t</td>
+<td>탭 (U+0009) 문자에 일치</td>
+</tr>
+</tbody></table>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-                <div class="post-preview">
-    <a href="/2023/09/05/클린코드-Javascript-함수-part1/">
-        <h1 class="post-title archive">
-            클린코드 - Javascript 함수 [part1]
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-            Posted by Daehan Kang on
-        
-        2023-09-05
-    </p>
-</div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
             
-                <div class="post-preview">
-    <a href="/2023/09/04/Javascript-예외-처리/">
-        <h1 class="post-title archive">
-            Javascript 예외 처리
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-            Posted by Daehan Kang on
-        
-        2023-09-04
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2023/09/04/Javascript-10가지-트릭/">
-        <h1 class="post-title archive">
-            Javascript 10가지 Tip!
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-            Posted by Daehan Kang on
-        
-        2023-09-04
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />
