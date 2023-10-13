@@ -100,6 +100,16 @@ figure.highlight table .line {
 figure.highlight table .line.marked {
   background: #d6d6d6;
 }
+figure.highlight table th {
+  background-color: #999;
+  padding: 0.25rem 0.5rem;
+  border: 0.5px solid #ddd;
+  text-align: center;
+}
+figure.highlight table td {
+  padding: 0.25rem 0.5rem;
+  border: 0.5px solid #ddd;
+}
 pre .comment,
 pre .template_comment,
 pre .diff .header,
