@@ -620,8 +620,9 @@ table {
 }
 table th {
   background-color: #999;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem 0.5rem;
   border: 0.5px solid #ddd;
+  font-weight: 600;
   text-align: center;
 }
 table td {
